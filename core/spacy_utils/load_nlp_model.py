@@ -17,10 +17,9 @@ def get_spacy_model(language: str):
 
 def get_lang_detector(nlp, name):
     """返回语言检测器工厂"""
+    if not Language.has_factory("language_detector"):
+        Language.factory("language_detector", func=get_lang_detector)
     return LanguageDetector(language_detection_kwargs={'seed': 42})
-
-# 注册语言检测器工厂
-Language.factory("language_detector", func=get_lang_detector)
 
 def detect_language(text: str) -> str:
     """检测文本的语言，使用langdetect和spacy_langdetect"""
