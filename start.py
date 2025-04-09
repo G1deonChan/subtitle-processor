@@ -50,7 +50,7 @@ def check_spacy_models():
         return False
 
 def main():
-    console.print(Panel("[bold blue]🚀 Starting VideoLingo[/bold blue]"))
+    console.print(Panel("[bold blue]🚀 Starting subtitle-processor[/bold blue]"))
 
     # 检查依赖
     if not check_dependencies():
@@ -75,7 +75,7 @@ def main():
     try:
         subprocess.run(["streamlit", "run", "st.py"], check=True)
     except KeyboardInterrupt:
-        console.print("\n[blue]👋 Thank you for using VideoLingo![/blue]")
+        console.print("\n[blue]👋 Thank you for using subtitle-processor![/blue]")
     except Exception as e:
         console.print(f"[red]Error starting Streamlit: {str(e)}[/red]")
         sys.exit(1)
